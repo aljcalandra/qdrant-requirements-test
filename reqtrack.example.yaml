@@ -1,0 +1,28 @@
+store:
+  url: http://localhost:6333   # Qdrant server, shared with the MCP server
+  # path: data/qdrant          # or a local in-process store (one process at a time)
+  collection: requirements
+  model: BAAI/bge-small-en-v1.5
+
+# Append-only change log. Commit it or keep it on the machine that runs sync.
+log: data/changes.jsonl
+
+confluence:
+  base_url: https://example.atlassian.net/wiki   # Data Center: https://confluence.example.com
+  spaces:
+    - key: REQ
+      kind: requirement
+    - key: QA
+      kind: test_plan
+  # A page label overrides the space kind.
+  labels:
+    test-plan: test_plan
+    requirement: requirement
+
+files:
+  - path: test-plans
+    kind: test_plan
+    glob: "**/*.md"
+  - path: tests
+    kind: test
+    glob: "**/*.py"

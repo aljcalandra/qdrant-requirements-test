@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+build/
+dist/
+*.egg-info/
+.eggs/
+wheels/
+pip-wheel-metadata/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Tests and coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+.tox/
+.nox/
+.hypothesis/
+
+# Type checkers and linters
+.mypy_cache/
+.pyright/
+.ruff_cache/
+.dmypy.json
+
+# Runtime data: Qdrant store, change log, model cache
+data/
+local_cache/
+fastembed_cache/
+
+# Qdrant server binary and storage when run from the repo
+qdrant
+qdrant-*.tar.gz
+storage/
+snapshots/
+
+# Local config and notes
+reqtrack.yaml
+.env
+PLAN.md
+
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store

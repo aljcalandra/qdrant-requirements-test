@@ -1,0 +1,35 @@
+[project]
+name = "reqtrack"
+version = "0.1.0"
+description = "Versioned requirements, test plans and tests in a vector search store"
+authors = [
+    { email = "27294679+aljcalandra@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastembed>=0.4",
+    "qdrant-client>=1.12",
+    "pyyaml>=6.0",
+    "requests>=2.31",
+    "mcp>=2.0",
+]
+
+[project.scripts]
+reqtrack = "reqtrack.cli:main"
+reqtrack-mcp = "reqtrack.mcp_server:main"
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[build-system]
+requires = ["uv_build>=0.13.0,<0.14.0"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+addopts = "--strict-markers"
+markers = [
+    "unit: pure functions, no store",
+    "store: runs against an in-memory Qdrant",
+    "confluence: Confluence parsing",
+    "mcp: reqtrack MCP server tools",
+]

@@ -1,0 +1,40 @@
+{
+  "mcpServers": {
+    "reqtrack": {
+      "command": "uv",
+      "args": [
+        "run",
+        "reqtrack-mcp"
+      ],
+      "env": {
+        "REQTRACK_CONFIG": "reqtrack.yaml"
+      }
+    },
+    "reqtrack-current": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-qdrant"
+      ],
+      "env": {
+        "QDRANT_URL": "http://localhost:6333",
+        "COLLECTION_NAME": "requirements_current",
+        "EMBEDDING_MODEL": "BAAI/bge-small-en-v1.5",
+        "QDRANT_READ_ONLY": "true",
+        "TOOL_FIND_DESCRIPTION": "Search the latest version of requirements, test plans and tests."
+      }
+    },
+    "reqtrack-history": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-qdrant"
+      ],
+      "env": {
+        "QDRANT_URL": "http://localhost:6333",
+        "COLLECTION_NAME": "requirements_history",
+        "EMBEDDING_MODEL": "BAAI/bge-small-en-v1.5",
+        "QDRANT_READ_ONLY": "true",
+        "TOOL_FIND_DESCRIPTION": "Search every past and current version of requirements, test plans and tests."
+      }
+    }
+  }
+}
